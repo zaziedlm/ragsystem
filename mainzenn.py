@@ -128,7 +128,7 @@ def rag_implementation(question: str) -> str:
                 for chunk in chunks:
                     splitted_docs.append(Document(page_content=chunk, metadata=doc.metadata))
 
-            embedding_function = OpenAIEmbeddings()
+            embedding_function = OpenAIEmbeddings(model="text-embedding-3-small")
 
             vectorstore = Chroma.from_documents(
                 splitted_docs,
